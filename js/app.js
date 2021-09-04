@@ -2,7 +2,7 @@ let newCSS = { borderRadius: "2rem" };
 
 (function () {
     /** Define variable */
-    let cssValue = `0.25rem solid #555`;
+    let cssValue = `0.25rem`;
     let customCorner = false;
     let cssTransform = `scale(1)`;
 
@@ -27,9 +27,9 @@ let newCSS = { borderRadius: "2rem" };
 
     function widthFunc() {
         scaleInRem = borderWidth.value / 16;
-        cssValue = `${scaleInRem}rem solid #555`
+        cssValue = `${scaleInRem}rem`
         //console.log(cssValue);
-        box.style.border = cssValue;
+        box.style.borderWidth = cssValue;
         generatedCode();
     }
 
@@ -81,7 +81,44 @@ let newCSS = { borderRadius: "2rem" };
     } generatedCode();
 
     let allCSS = `border: ${cssValue}; border-radius: ${newCSS.borderRadius}; transform: ${cssTransform};`;
-    document.querySelector("#copyCSS").addEventListener("click", function () {
+    const btnCopy = document.querySelector("#copyCSS");
+    btnCopy.addEventListener("click", function () {
         navigator.clipboard.writeText(allCSS);//console.log(allCSS);
+        btnCopy.innerHTML = "Copied";
     });
 })();
+
+{
+    function inputColor() {
+        const color = document.querySelector("#inputColor");
+        const custom = document.querySelector("#colorCode");
+        const box = document.querySelector("#box");
+        const valueBox = document.querySelector("#valueBox");
+
+        function setColor(color) {
+            box.style.borderColor = color;
+            valueBox.style.borderColor = color;
+        }
+
+        /* Default Call */
+        custom.setAttribute("value", color.value);
+
+        function onInput() {
+            custom.setAttribute("value", color.value);
+            setColor(color.value);
+        }
+        color.addEventListener("input", onInput);
+
+        function customCode() {
+            if (custom.value.length === 7) {
+                color.setAttribute("value", custom.value);
+                setColor(custom.value);
+            } else {
+                custom.setAttribute("value", color.value);
+                setColor(color.value);
+            }
+            //console.log(custom.value.length);
+        }
+        custom.addEventListener("input", customCode)
+    } inputColor();
+}

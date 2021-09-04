@@ -63,9 +63,6 @@
                         <svg viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="stroke" d="M0.992188 32.918L0.992186 0.0078125L10.9922 12L10.9922 22.918L21.9102 22.918L33.918 32.918L0.992188 32.918Z" fill="black" />
                         </svg>
-                        <!-- <svg width="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path class="stroke" d="M42 42L38 42C20.3269 42 6 27.6731 6 10L6 6" stroke="black" stroke-width="12" stroke-linecap="round" />
-                        </svg> -->
                     </div>
                 </div>
             </div>
@@ -85,20 +82,31 @@
                             <label for="scale">Border Radius</label>
                             <input id="borderRadius" type="range" min="0" max="100" value="25">
                         </div>
-                        <div class="form__group border__sides none">
+                        <div class="form__group">
+                            <div class="d-flex">
+                                <label for="color">Color</label>
+                                <input type="color" value="#f5eded" id="inputColor">
+                                <input type="text" size="4" id="colorCode">
+                            </div>
+                        </div>
+                        <!-- <div class="form__group border__sides none">
                             <button type="button" class="btn__style" value="all">All</button>
-                            <button type="button" class="btn__style" value="top">Top</button>
+                            <button type="button" class="btn__style" value="top">Groove</button>
                             <button type="button" class="btn__style" value="right">Right</button>
                             <button type="button" class="btn__style" value="bottom">Bottom</button>
                             <button type="button" class="btn__style" value="left">Left</button>
-                        </div>
+                        </div> -->
                     </form>
 
                     <div class="code__box" title="CSS Code">
                         <code class="css">
                             <div>
-                                <span class="property">border:</span>
+                                <span class="property">border-width:</span>
                                 <span class="value" id="borderValue">0.5rem solid #555555</span>
+                            </div>
+                            <div>
+                                <span class="property">border-style:</span>
+                                <span class="value" id="borderStyle">Solid</span>
                             </div>
                             <div>
                                 <span class="property">border-radius:</span>
